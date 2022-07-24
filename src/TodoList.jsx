@@ -1,9 +1,23 @@
+import { Divider, List, Paper } from '@mui/material';
+import Todo from './Todo';
+
 export default function TodoList(props) {
 	return (
-		<ul>
-			{props.todos.map((item) => {
-				return <li key={item.id}>{item.task}</li>;
-			})}
-		</ul>
+		<Paper>
+			<List>
+				{props.todos.map((todo) => {
+					return (
+						<>
+							<Todo
+								task={todo.task}
+								key={todo.key}
+								completed={todo.completed}
+							/>
+							<Divider />
+						</>
+					);
+				})}
+			</List>
+		</Paper>
 	);
 }

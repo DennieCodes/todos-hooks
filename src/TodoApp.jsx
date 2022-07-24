@@ -9,7 +9,7 @@ import TodoForm from './TodoForm';
 
 export default function TodoApp() {
 	const initialTodos = [
-		{ id: 1, task: 'Continue project', completed: false },
+		{ id: 1, task: 'Continue project', completed: true },
 		{ id: 2, task: 'Review Grokking coding algorithms', completed: false },
 		{ id: 3, task: 'Look at Leetcode problem', completed: false },
 	];
@@ -34,8 +34,17 @@ export default function TodoApp() {
 					<Typography color="inherit">TODOS WITH HOOKS</Typography>
 				</Toolbar>
 			</AppBar>
-			<TodoForm addTodo={addTodo} />
-			<TodoList todos={todos} />
+			<Grid
+				container
+				alignItems="center"
+				direction="column"
+				style={{ marginTop: '1 rem' }}
+			>
+				<Grid item xs={11} md={8} lg={4} spacing={3}>
+					<TodoForm addTodo={addTodo} />
+					<TodoList todos={todos} />
+				</Grid>
+			</Grid>
 		</Paper>
 	);
 }
