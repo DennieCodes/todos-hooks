@@ -15,9 +15,7 @@ export default function TodoList({
 						return (
 							<div key={todo.id}>
 								<Todo
-									id={todo.id}
-									task={todo.task}
-									completed={todo.completed}
+									{...todo}
 									removeTodo={removeTodo}
 									toggleTodo={toggleTodo}
 									updateTodo={updateTodo}
