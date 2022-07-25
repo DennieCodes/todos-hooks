@@ -11,13 +11,22 @@ export default function EditTodoForm({ updateTodo, id, task, toggleEditForm }) {
 		toggleEditForm();
 	};
 
+	const toggleEdit = () => {
+		toggleEditForm();
+	};
+
 	return (
-		<form onSubmit={handleSubmit}>
+		<form
+			onSubmit={handleSubmit}
+			onBlur={toggleEdit}
+			style={{ marginLeft: '1rem', width: '100%' }}
+		>
 			<TextField
 				margin="normal"
 				value={value}
 				onChange={handleChange}
 				fullWidth
+				autoFocus
 			/>
 		</form>
 	);

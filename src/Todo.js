@@ -25,7 +25,7 @@ export default function Todo({
 	};
 
 	return (
-		<ListItem>
+		<ListItem style={{ height: '64px' }}>
 			{isEditing ? (
 				<EditTodoForm
 					updateTodo={updateTodo}

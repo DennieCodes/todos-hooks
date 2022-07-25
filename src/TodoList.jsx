@@ -7,26 +7,27 @@ export default function TodoList({
 	toggleTodo,
 	updateTodo,
 }) {
-	return (
-		<Paper>
-			<List>
-				{todos.map((todo) => {
-					return (
-						<>
-							<Todo
-								id={todo.id}
-								task={todo.task}
-								key={todo.id}
-								completed={todo.completed}
-								removeTodo={removeTodo}
-								toggleTodo={toggleTodo}
-								updateTodo={updateTodo}
-							/>
-							<Divider />
-						</>
-					);
-				})}
-			</List>
-		</Paper>
-	);
+	if (todos.length)
+		return (
+			<Paper>
+				<List>
+					{todos.map((todo, idx) => {
+						return (
+							<div key={todo.id}>
+								<Todo
+									id={todo.id}
+									task={todo.task}
+									completed={todo.completed}
+									removeTodo={removeTodo}
+									toggleTodo={toggleTodo}
+									updateTodo={updateTodo}
+								/>
+								{idx < todos.length - 1 && <Divider />}
+							</div>
+						);
+					})}
+				</List>
+			</Paper>
+		);
+	return null;
 }
