@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
+import { TodosProvider } from './context/todos.context';
 
 export default function TodoApp() {
 	const initialTodos = [{ id: 1, task: 'Add a new todo', completed: false }];
@@ -34,13 +35,15 @@ export default function TodoApp() {
 				style={{ marginTop: '1 rem' }}
 			>
 				<Grid item xs={11} md={8} lg={4}>
-					<TodoForm addTodo={addTodo} />
-					<TodoList
-						todos={todos}
-						removeTodo={removeTodo}
-						toggleTodo={toggleTodo}
-						updateTodo={updateTodo}
-					/>
+					<TodosProvider>
+						<TodoForm addTodo={addTodo} />
+						<TodoList
+							todos={todos}
+							removeTodo={removeTodo}
+							toggleTodo={toggleTodo}
+							updateTodo={updateTodo}
+						/>
+					</TodosProvider>
 				</Grid>
 			</Grid>
 		</Paper>
