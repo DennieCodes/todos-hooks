@@ -5,7 +5,6 @@ const reducer = (state, action) => {
 		case 'ADD':
 			return [...state, { id: uuidv4(), task: action.task, completed: false }];
 		case 'REMOVE':
-			console.log('REMOVE');
 			return state.filter((todo) => todo.id !== action.id);
 		case 'TOGGLE':
 			return state.map((todo) =>

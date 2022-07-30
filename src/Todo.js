@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { TodosContext } from './context/todos.context';
+import { DispatchContext } from './context/todos.context';
 import useToggleState from './hooks/useToggleState';
 import {
 	Checkbox,
@@ -13,7 +13,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import EditTodoForm from './EditTodoForm';
 
 export default function Todo({ id, task, completed }) {
-	const { dispatch } = useContext(TodosContext);
+	const dispatch = useContext(DispatchContext);
 	const [isEditing, toggle] = useToggleState(false);
 
 	const listItemStyling = {

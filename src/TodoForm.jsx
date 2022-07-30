@@ -1,11 +1,11 @@
 import { Paper, TextField } from '@mui/material';
 import useInputState from './hooks/useInputState';
 import { useContext } from 'react';
-import { TodosContext } from './context/todos.context';
+import { DispatchContext } from './context/todos.context';
 
 export default function TodoForm({ addTodo }) {
 	const [value, handleChange, reset] = useInputState('');
-	const { dispatch } = useContext(TodosContext);
+	const dispatch = useContext(DispatchContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

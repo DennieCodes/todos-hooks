@@ -4,7 +4,7 @@ import { Divider, List, Paper } from '@mui/material';
 import Todo from './Todo';
 
 export default function TodoList() {
-	const { todos } = useContext(TodosContext);
+	const todos = useContext(TodosContext);
 
 	if (todos.length)
 		return (
