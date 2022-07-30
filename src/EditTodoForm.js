@@ -1,12 +1,15 @@
+import { useContext } from 'react';
+import { TodosContext } from './context/todos.context';
 import { TextField } from '@mui/material';
 import useInputState from './hooks/useInputState';
 
-export default function EditTodoForm({ updateTodo, id, task, toggleEditForm }) {
+export default function EditTodoForm({ id, task, toggleEditForm }) {
+	const { dispatch } = useContext(TodosContext);
 	const [value, handleChange, reset] = useInputState(task);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		updateTodo(id, value);
+		dispatch({ type: 'UPDATE', id: id, newTask: value });
 		reset();
 		toggleEditForm();
 	};
