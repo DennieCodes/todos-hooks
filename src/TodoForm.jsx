@@ -14,7 +14,7 @@ export default function TodoForm({ addTodo }) {
 	};
 
 	return (
-		<Paper style={{ margin: '1rem 0', padding: '1rem' }}>
+		<Paper style={{ margin: '1rem 0', padding: '1rem', width: '30em' }}>
 			<form onSubmit={handleSubmit}>
 				<TextField
 					value={value}

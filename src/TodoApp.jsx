@@ -34,7 +34,7 @@ export default function TodoApp() {
 				direction="column"
 				style={{ marginTop: '1 rem' }}
 			>
-				<Grid item xs={11} md={8} lg={4}>
+				<Grid item xs={11} md={8} lg={6}>
 					<TodosProvider>
 						<TodoForm addTodo={addTodo} />
 						<TodoList
