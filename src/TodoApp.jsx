@@ -1,4 +1,3 @@
-import useTodoState from './hooks/useTodoState';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import AppBar from '@mui/material/AppBar';
@@ -9,10 +8,6 @@ import TodoForm from './TodoForm';
 import { TodosProvider } from './context/todos.context';
 
 export default function TodoApp() {
-	const initialTodos = [{ id: 1, task: 'Add a new todo', completed: false }];
-	const { todos, addTodo, removeTodo, toggleTodo, updateTodo } =
-		useTodoState(initialTodos);
-
 	return (
 		<Paper
 			style={{
@@ -36,13 +31,8 @@ export default function TodoApp() {
 			>
 				<Grid item xs={11} md={8} lg={6}>
 					<TodosProvider>
-						<TodoForm addTodo={addTodo} />
-						<TodoList
-							todos={todos}
-							removeTodo={removeTodo}
-							toggleTodo={toggleTodo}
-							updateTodo={updateTodo}
-						/>
+						<TodoForm />
+						<TodoList />
 					</TodosProvider>
 				</Grid>
 			</Grid>
