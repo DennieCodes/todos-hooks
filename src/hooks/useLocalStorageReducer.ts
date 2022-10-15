@@ -1,6 +1,11 @@
 import { useReducer, useEffect } from 'react';
+import { TodoType } from '../models';
 
-export default function useLocalStorageReducer(key, defaultVal, reducer) {
+export default function useLocalStorageReducer(
+	key: string,
+	defaultVal: TodoType,
+	reducer: () => void
+) {
 	const [state, dispatch] = useReducer(reducer, defaultVal, () => {
 		let val;
 

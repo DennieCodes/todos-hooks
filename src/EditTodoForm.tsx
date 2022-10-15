@@ -1,13 +1,18 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { DispatchContext } from './context/todos.context';
 import { TextField } from '@mui/material';
 import useInputState from './hooks/useInputState';
+import { EditFormType } from './models';
 
-export default function EditTodoForm({ id, task, toggleEditForm }) {
+export default function EditTodoForm({
+	id,
+	task,
+	toggleEditForm,
+}: EditFormType) {
 	const dispatch = useContext(DispatchContext);
 	const [value, handleChange, reset] = useInputState(task);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		dispatch({ type: 'UPDATE', id: id, newTask: value });
 		reset();
