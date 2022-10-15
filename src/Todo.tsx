@@ -11,8 +11,9 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import EditTodoForm from './EditTodoForm';
+import { TodoType } from './models';
 
-function Todo({ id, task, completed }) {
+function Todo({ id, task, completed }: TodoType) {
 	const dispatch = useContext(DispatchContext);
 	const [isEditing, toggle] = useToggleState(false);
 
