@@ -1,11 +1,11 @@
 export type TodoType = {
-	id: number;
+	id: string;
 	task: string;
 	completed: boolean;
 };
 
 export type EditFormType = {
-	id: number;
+	id: string;
 	task: string;
 	toggleEditForm: () => void;
 };
@@ -13,6 +13,6 @@ export type EditFormType = {
 export type TodoReducerAction = {
 	type: 'ADD' | 'REMOVE' | 'UPDATE' | 'TOGGLE';
 	task: string;
-	id: number;
+	id: string;
 	newTask: string;
 };

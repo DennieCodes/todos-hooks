@@ -9,25 +9,23 @@ import { TodoType } from '../models';
 export default function useTodoState(initialTodos: TodoType) {
 	const [todos, setTodos] = useLocalStorageState('todos', initialTodos);
 
-	console.log('Todos: ', todos);
-
 	const addTodo = (newTodoText: string) => {
 		setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }]);
 	};
 
-	const removeTodo = (todoId: number) => {
+	const removeTodo = (todoId: string) => {
 		const updatedTodos = todos.filter((todo: TodoType) => todo.id !== todoId);
 		setTodos(updatedTodos);
 	};
 
-	const toggleTodo = (todoId: number) => {
+	const toggleTodo = (todoId: string) => {
 		const updatedTodos = todos.map((todo: TodoType) =>
 			todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
 		);
 		setTodos(updatedTodos);
 	};
 
-	const updateTodo = (todoId: number, newTask: string) => {
+	const updateTodo = (todoId: string, newTask: string) => {
 		const updatedTodos = todos.map((todo: TodoType) =>
 			todo.id === todoId ? { ...todo, task: newTask } : todo
 		);
@@ -36,5 +34,3 @@ export default function useTodoState(initialTodos: TodoType) {
 
 	return { todos, addTodo, removeTodo, updateTodo, toggleTodo };
 }
-
-// { TodoType, () => void, () => void, () => void, () => void}

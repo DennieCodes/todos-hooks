@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ADD, REMOVE, TOGGLE, UPDATE } from '../actions';
 import { TodoReducerAction, TodoType } from '../models';
 
-const reducer = (state: TodoType[], action: TodoReducerAction) => {
+const reducer = (state: TodoType[], action: TodoReducerAction): TodoType[] => {
 	switch (action.type) {
 		case ADD:
 			return [...state, { id: uuidv4(), task: action.task, completed: false }];
