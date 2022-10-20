@@ -1,5 +1,5 @@
 import { useContext, memo } from 'react';
-import { DispatchContext } from './context/todos.context';
+import { TodosContext } from './context/todos.context';
 import useToggleState from './hooks/useToggleState';
 import {
 	Checkbox,
@@ -11,9 +11,11 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import EditTodoForm from './EditTodoForm';
+import { TodoType } from './models';
+import { TOGGLE, REMOVE } from './actions';
 
-function Todo({ id, task, completed }) {
-	const dispatch = useContext(DispatchContext);
+function Todo({ id, task, completed }: TodoType) {
+	const { dispatch } = useContext(TodosContext);
 	const [isEditing, toggle] = useToggleState(false);
 
 	const listItemStyling = {
@@ -29,13 +31,17 @@ function Todo({ id, task, completed }) {
 					<Checkbox
 						tabIndex={-1}
 						checked={completed}
-						onClick={() => dispatch({ type: 'TOGGLE', id: id })}
+						onClick={() =>
+							dispatch({ type: TOGGLE, id: id, newTask: '', task: '' })
+						}
 					/>
 					<ListItemText style={listItemStyling}>{task}</ListItemText>
 					<ListItemSecondaryAction>
 						<IconButton
 							aria-label="Delete"
-							onClick={() => dispatch({ type: 'REMOVE', id: id })}
+							onClick={() =>
+								dispatch({ type: REMOVE, id: id, newTask: '', task: '' })
+							}
 						>
 							<DeleteIcon />
 						</IconButton>

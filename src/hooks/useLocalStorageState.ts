@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
+import { TodoType } from '../models';
 
-export default function useLocalStorageState(key, defaultVal) {
+export default function useLocalStorageState(
+	key: string,
+	defaultVal: TodoType
+) {
 	const [state, setState] = useState(() => {
 		let val;
 
