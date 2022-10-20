@@ -105,8 +105,7 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"src/context/todos.context.tsx",
-		"src/index.js"
+		"src/context/todos.context.tsx"
 	],
 	"exclude": ["node_modules"]
 }
